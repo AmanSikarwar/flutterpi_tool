@@ -26,19 +26,19 @@ abstract class FlutterpiAppBundle extends ApplicationPackage {
 
 class BuildableFlutterpiAppBundle extends FlutterpiAppBundle {
   BuildableFlutterpiAppBundle({
-    required String id,
-    required String name,
-    required String displayName,
-  }) : super(id: id, name: name, displayName: displayName);
+    required super.id,
+    required super.name,
+    required super.displayName,
+  });
 }
 
 class PrebuiltFlutterpiAppBundle extends FlutterpiAppBundle {
   PrebuiltFlutterpiAppBundle({
-    required String id,
-    required String name,
-    required String displayName,
+    required super.id,
+    required super.name,
+    required super.displayName,
     required this.directory,
-  }) : super(id: id, name: name, displayName: displayName);
+  });
 
   final Directory directory;
 }
@@ -89,6 +89,7 @@ class FlutterpiSshDevice extends Device {
   })  : remoteInstallPath = remoteInstallPath ?? '/tmp/',
         super(
           id,
+          logger: logger,
           category: Category.mobile,
           platformType: PlatformType.custom,
           ephemeral: false,

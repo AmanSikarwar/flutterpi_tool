@@ -133,6 +133,7 @@ Future<void> buildFlutterpiBundle({
     platform: globals.platform,
     generateDartPluginRegistry: true,
     operatingSystemUtils: operatingSystemUtils,
+    packageConfigPath: project.dartTool.childFile('.packages').path,
   );
 
   final buildTarget = switch (buildInfo.mode) {

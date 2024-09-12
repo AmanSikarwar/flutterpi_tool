@@ -23,6 +23,7 @@ class ExtendedEnvironment implements Environment {
     required MoreOperatingSystemUtils operatingSystemUtils,
     Map<String, String> defines = const <String, String>{},
     Map<String, String> inputs = const <String, String>{},
+    required String packageConfigPath,
   }) {
     return ExtendedEnvironment.wrap(
       operatingSystemUtils: operatingSystemUtils,
@@ -43,6 +44,7 @@ class ExtendedEnvironment implements Environment {
         buildDir: buildDir,
         defines: defines,
         inputs: inputs,
+        packageConfigPath: packageConfigPath,
       ),
     );
   }
@@ -109,4 +111,7 @@ class ExtendedEnvironment implements Environment {
   Usage get usage => _delegate.usage;
 
   final MoreOperatingSystemUtils operatingSystemUtils;
+
+  @override
+  String get packageConfigPath => _delegate.packageConfigPath;
 }
